@@ -66,7 +66,11 @@ npm install
 mops install
 ```
 
-### 3. Running Ollama
+### 3. AI Provider Setup
+
+This template supports two ways to utilize AI for processing prompts:
+
+#### 3a. Running Ollama (Local)
 
 To be able to test the agent locally, you'll need a server for processing the agent's prompts. For that, we'll use `ollama`, which is a tool that can download and serve LLMs.
 See the documentation on the [Ollama website](https://ollama.com/). Run:
@@ -83,6 +87,21 @@ ollama run llama3.1:8b
 ```
 
 Once the command executes and the model is loaded, you can terminate it by typing /bye. You won't need to do this step again.
+
+#### 3b. ICP-Coder
+
+Alternatively, you can use ICP-Coder, a Retrieval-Augmented Generation (RAG) pipeline for Motoko code search and code generation, providing enhanced context-aware responses with access to Motoko documentation and code examples. To enable this option:
+
+1. Clone the ICP-Coder repository and follow the setup instructions: https://github.com/DiegoFloresWenHao/ICP_Coder
+
+2. Set the `VITE_ICP_CODER_API_KEY` environment variable in your `.env` file:
+   ```bash
+   VITE_ICP_CODER_API_KEY=your_api_key_here
+   ```
+
+3. When the API key is configured, the frontend will display both Ollama and ICP-Coder options, allowing you to choose between providers.
+
+4. Without the API key, only the Ollama option will be available.
 
 ### 4. Deployment
 
